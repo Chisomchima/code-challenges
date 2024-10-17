@@ -1,8 +1,10 @@
+
 "use client";
+{/* eslint-disable react/no-unescaped-entities */}
 import React, { useState } from "react";
 import Image from "next/image";
-import Suggestions from "../../../components/ui/suggestions";
-import Modal from "../../../components/ui/Modal";
+// import Suggestions from "../../../components/ui/suggestions";
+// import Modal from "../../../components/ui/Modal";
 import { useRouter } from "next/navigation";
 
 function Challenge() {
@@ -83,7 +85,7 @@ function Challenge() {
             If you need help with this challenge, check out our hand-picked
             tutorial recommendations.
           </span>
-          <Suggestions
+          {/* <Suggestions
             title={"Responsive Web Design with CSS Grid"}
             body={"Learn to create flexible, grid-based layouts."}
             isImage={false}
@@ -101,7 +103,7 @@ function Challenge() {
             title={"CSS Animations and Transitions"}
             body={"Enhance your web pages with smooth animations."}
             isImage={false}
-          />
+          /> */}
         </div>
       </div>
       <div className="flex justify-center items-center">
@@ -120,12 +122,14 @@ function Challenge() {
           <h1 className="text-center">View other's result</h1>
         </div>
       </div>
-
+{/* 
       <Modal
         isOpen={modalOpen}
         onClose={closeModal}
         onSubmit={handleShareSubmit}
       />
+*/}
+
     </section>
   );
 }

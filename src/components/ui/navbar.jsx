@@ -18,7 +18,7 @@ function Navbar() {
 
   useEffect(() => {
     console.log(isDropdownOpen, "toggle");
-  }, [toggle]);
+  }, [toggle, isDropdownOpen]);
   const Router = useRouter();
   const challeges = () => {
     Router.push("/challenges/myChallenges");
