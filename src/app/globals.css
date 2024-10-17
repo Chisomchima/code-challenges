@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Sora", sans-serif;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  width: 100vw;
+  /* height: 100%; */
+  overflow-x: hidden;
+  background-image: url(/images/grain.png);
+  background-color: #f4efe7;
+}
+:root {
+  --svg-color: red;
+}
+.medal-card {
+  transition: transform 0.3s, border-radius 0.3s;
+  border-radius: 20px;
+}
+
+img.svg-red {
+  filter: drop-shadow(0 0 0 var(--svg-color));
+}
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.backgroundImage {
+  background-image: url(/images/grain.png);
+}
+
+.black {
+  background-color: #070707;
+}
+.background {
+  background: linear-gradient(to right, #1d0d2a 100%, #652d90 60%);
+}
+.gradient {
+  width: 100%;
+  background-image: url("/images/gradient2.svg");
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+}
+.gallery {
+  display: flex;
+  padding-right: 20px;
+  justify-content: end;
+  transition: all 1s ease-out;
+  height: 100%;
+  width: 70%;
+}
+.imgBox {
+  max-width: 120px;
+  height: 400px;
+  margin: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a1a;
+  color: #dcaeff;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.8s ease-out;
+}
+.imgBox:hover + .bigCard {
+  max-width: 300px; /* Change max-width of big box on hover */
+}
+.number {
+  color: #edd4ff;
+  margin-top: 10px;
+}
+
+.galleryText {
+  transform: rotate(90deg);
+  white-space: nowrap;
+}
+.galleryIcon {
+  margin-bottom: 20px;
+}
+.bigCard {
+  width: 350px;
+  border-radius: 8px;
+  padding: 30px;
+  background: linear-gradient(90deg, #1d0d2a 0%, #652d90 100%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.cardGradient {
+  background-image: url("/images/cardGradient.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.bigNumber {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.37px;
+}
+
+.bigGalleryText {
+  font-size: 38px;
+  width: 95%;
+  font-weight: 700;
+  letter-spacing: 0.37px;
+  line-height: 50px;
+}
+.bigDescription {
+  color: aliceblue;
+  font-size: 14px;
+}
+.sidebar {
+  -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}

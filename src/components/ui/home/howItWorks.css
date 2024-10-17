@@ -1,0 +1,72 @@
+.gallery{
+    display: flex;
+    padding-right: 20px;
+    justify-content: end;
+    transition: all 2s ease-in;
+    height: 400px;
+    width: 70%;
+}
+.imgBox{
+    max-width: 120px;
+    height: 400px;
+    margin: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1A1A1A;
+    color: #DCAEFF;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all .8s ease-out, 
+}
+.imgBox:hover {
+    max-width: 300px; 
+}
+.number{
+    color: #EDD4FF;
+    margin-top: 10px;
+   
+}
+ 
+.galleryText{
+    transform: rotate(90deg);
+    white-space: nowrap;
+    
+}
+.galleryIcon{
+  margin-bottom: 20px;
+}
+.bigCard{
+    /* width: 350px; */
+    border-radius: 8px;
+    padding: 30px ;
+    background: linear-gradient(95deg, #581c87 0%, #be185d 100%);
+    display: flex;
+    flex-direction: column;
+}
+.cardGradient{
+    background-image: url('/images/cardGradient.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.bigNumber{
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 0.37px; 
+}
+ 
+.bigGalleryText{
+    font-size: 38px;
+    width: 95%;
+    font-weight: 700;
+    letter-spacing: 0.37px;
+    line-height:50px;
+    
+}
+.bigDescription{
+    color: aliceblue;
+    font-size: 14px;
+}
+
