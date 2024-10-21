@@ -20,17 +20,21 @@ function Navbar() {
     console.log(isDropdownOpen, "toggle");
   }, [toggle, isDropdownOpen]);
   const Router = useRouter();
-  const challeges = () => {
-    Router.push("/challenges/myChallenges");
+  const challenges = () => {
+    Router.push("/dashboard/myChallenges");
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+  const allChallenges = () => {
+    Router.push("/dashboard");
     setIsDropdownOpen(!isDropdownOpen);
   };
   const medal = () => {
-    Router.push("/medals");
+    Router.push("/dashboard/medals");
     setIsDropdownOpen(!isDropdownOpen);
   };
 
   return (
-    <nav className="w-full z-10 flex items-center justify-center p-2 mx-auto h-[70px] background text-white fixed top-0">
+    <nav className="w-full z-10 flex items-center justify-center p-2 mx-auto h-[70px] background text-white fixed top-0 mr-3">
       <div className="flex items-center justify-between w-full mx-[30px]">
         <Link href="/">
           <h1 className="text-[30px] font-bold">DevSpace</h1>
@@ -74,9 +78,15 @@ function Navbar() {
             <hr className="border-1 border-purple-950" />
             <div
               className="p-3 hover:bg-purple-950 rounded-lg text-gray-300"
-              onClick={challeges}
+              onClick={allChallenges}
             >
-              My Challeges
+              All Challenges
+            </div>
+            <div
+              className="p-3 hover:bg-purple-950 rounded-lg text-gray-300"
+              onClick={challenges}
+            >
+              My Challenges
             </div>
             <div
               className="p-3 hover:bg-purple-950 rounded-lg text-gray-300"
@@ -89,6 +99,8 @@ function Navbar() {
             </button>
           </div>
         )}
+
+        <Link href="/login" className="py-2 px-4 bg-purple-700 rounded-[1rem] hover:bg-purple-700">Login</Link>
       </div>
     </nav>
   );

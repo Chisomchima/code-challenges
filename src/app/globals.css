@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-1: 0 100% 63%;
+  --color-2: 270 100% 63%;
+  --color-3: 210 100% 63%;
+  --color-4: 195 100% 63%;
+  --color-5: 90 100% 63%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -30,12 +38,17 @@ img.svg-red {
   padding: 0;
   scroll-behavior: smooth;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 .backgroundImage {
   background-image: url(/images/grain.png);
 }
 
+input {
+  border: 1px solid #470979;
+  border-radius:  5px !important;
+  padding: 10px !important;
+  background-color: #f5e7fa;
+}
 .black {
   background-color: #070707;
 }
