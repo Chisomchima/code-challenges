@@ -10,7 +10,7 @@ function Articles() {
       className="gradient pb-[5%] md:h-[100vh] md:pb-[2%] pt-[10%] md:pt-[1%] black flex items-center justify-center flex-col gap-20 relative"
     >
       <div className="flex flex-col items-center justify-start text-[#ffff]">
-        <h1 className="text-[35px] font-extrabold text-center md:text-[85px]">
+        <h1 className="text-[35px] font-extrabold text-center md:text-[55px]">
           Articles
         </h1>
         <h2 className="text-lg leading-6 text-center w-2/3">

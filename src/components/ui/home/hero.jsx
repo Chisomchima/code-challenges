@@ -1,32 +1,39 @@
 "use client";
 
 import React from "react";
-import { Globe } from "../globe"; 
-import RainbowButton from "../PulsatingButton";
+import Image from "next/image";
 
-function Hero({ handleGithubLogin }) {
+function Hero() {
   return (
-    <section className="flex items-center justify-center flex-col gap-20 relative h-[90vh] mt-[70px] overflow-hidden">
-      <div className="flex justify-center items-center">
-        <div className="text-gray-900 flex flex-col gap-10 justify-center items-center md:py-8 md:px-20">
-          <h1 className="text-[45px] font-extrabold leading-tight text-center md:text-[95px] md:font-extrabold md:text-center overflow-hidden">
-            Break into tech solving real world problems
-          </h1>
-          <p className="text-lg leading-6 text-center w-2/3">
-            Stuck in tutorial limbo? Break free and master coding by solving real-world challenges. Build a portfolio that sets you apart and lands your dream job!
-          </p>
-          <div className="relative flex items-center justify-center">
-            <button
-              onClick={handleGithubLogin}
-              className="text-center bg-gradient-to-br py-4 from-purple-900 to-purple-600 w-40 rounded-[1rem] mx-2 flex justify-center items-center text-white border animate-rainbow cursor-pointer"
-            >
-              Start challenges
-            </button>
-          </div>
-        </div>
+    <section className="flex flex-col lg:flex-row items-center h-auto lg:h-[100vh]">
+      <div className="p-5 lg:p-10 flex flex-col justify-center h-full gap-5">
+        <span className="text-[35px] font-extrabold leading-tight md:text-[45px] mt-10 lg:text-[60px] border-b pb-5 lg:pb-10 border-black">
+          Break into tech solving real-world problems
+        </span>
+
+        <p className="text-base md:text-lg leading-7 pt-2">
+          Embrace a new chapter filled with practical experience. Get involved
+          in some of the most exciting projects in our community, each providing
+          an opportunity to enhance your skills, expand your network, and gain
+          hands-on experience.
+        </p>
+
+        <button className="text-center py-3 lg:py-4 w-full lg:w-40 bg-black hover:bg-purple-900 rounded-[1rem] flex justify-center items-center text-white cursor-pointer">
+          Get Started
+        </button>
       </div>
-      {/* Globe is positioned absolutely behind the Hero content */}
-      {/* <Globe className="absolute bottom-[-50vh] left-1/2 h-[20vh]" /> */}
+
+      <div className="w-full lg:w-auto flex justify-center p-5 lg:p-10">
+        <Image
+          src={"/images/challenge.svg"}
+          alt="Description of image"
+          width={100}
+          height={100} // Adjusted height to make it a square for responsiveness
+          layout="responsive"
+          objectFit="contain"
+          className="rounded-lg"
+        />
+      </div>
     </section>
   );
 }

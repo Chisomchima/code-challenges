@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import Navbar from "./navbar";
-import NewsLetter from "./newsLetter";
 import Footer from "./footer";
 import { usePathname } from "next/navigation";
 
@@ -29,12 +28,11 @@ function LayoutHook({ children }) {
           </div>
         </div>
       ) : (
-        <>
+        <div className="w-[100wh] h-full overflow-x-hidden">
           <Navbar />
           {children}
-          <NewsLetter />
           <Footer />
-        </>
+        </div>
       )}
     </>
   );

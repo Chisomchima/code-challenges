@@ -5,55 +5,77 @@ function Resources() {
   return (
     <section
       id="getStarted"
-      className="pb-[5%] flex items-center justify-center flex-col gap-20"
+      className="pb-[5%] flex items-center justify-center h-auto flex-col gap-20"
     >
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-[35px] font-extrabold text-center md:text-[85px]">
-          Essential Resources
+        <h1 className="mt-20 text-[28px] md:text-[35px] font-extrabold text-center">
+          Level up your expertise
         </h1>
-        <h2 className="text-lg leading-6 text-center w-2/3">
-          Explore our collection of tools designed to help you excel in the tech industry.
+        <h2 className="text-base md:text-lg leading-6 text-center w-11/12 md:w-2/3">
+          Embrace a new chapter filled with practical experience. Get involved
+          in some of the most exciting projects in our community, each providing
+          an opportunity to enhance your skills, expand your network, and gain
+          hands-on experience.
         </h2>
       </div>
-      <div className="w-full grid md:grid-cols-3 px-5 gap-10">
-        <div className="bg-purple-900 text-white h-[400px] rounded-[22px] grid gap-2 px-10 py-5">
+
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-5 gap-10">
+        <div className="bg-purple-900 text-white rounded-[22px] grid gap-2 px-5 py-5">
           <Image
-            src="/images/card1.svg"
-            alt="Real World Challenges"
+            src="/images/reward.svg"
+            alt="Gain Valuable Experience"
             width={150}
-            height={180}
+            height={150}
             objectFit="contain"
           />
-          <h1 className="text-[20px] font-bold">Real-World Challenges</h1>
-          <p className="text-[13px] pr-5 leading-5">
-            Enhance your tech portfolio with our Real-World Challenges. Select a challenge, build it in your preferred programming language, and showcase your projects to the community. Earn shareable medals for your achievements and elevate your online presence.
+          <h1 className="text-[18px] md:text-[20px] font-bold">Gain Valuable Experience</h1>
+          <p className="text-[12px] md:text-[13px] pr-5 leading-7">
+            Unlock Mastery Level and take part in peer reviews and mentorship.
           </p>
         </div>
-        <div className="background text-white h-[400px] rounded-[22px] grid gap-2 px-10 py-5">
+        
+        <div className="bg-purple-900 text-white rounded-[22px] grid gap-2 px-5 py-5">
           <Image
-            src="/images/card2.svg"
-            alt="Insightful Articles"
+            src="/images/challenge-task.svg"
+            alt="Participate in Challenges"
             width={150}
-            height={180}
+            height={150}
             objectFit="contain"
           />
-          <h1 className="text-[20px] font-bold">Insightful Articles</h1>
-          <p className="text-[13px] pr-5 leading-5">
-            Discover a wealth of knowledge with our curated articles on technology trends, best practices, and industry insights. Stay updated with expert opinions and practical advice to refine your skills and stay competitive in the tech landscape.
+          <h1 className="text-[18px] md:text-[20px] font-bold">Participate in Challenges</h1>
+          <p className="text-[12px] md:text-[13px] pr-5 leading-7">
+            Each task you finish enhances your skills and transforms your resume
+            into something that gets noticed.
           </p>
         </div>
 
-        <div className="bg-gradient-to-r from-purple-900 to-pink-700 text-white rounded-[22px] grid gap-2 px-10 py-5">
+        <div className="bg-gradient-to-r from-purple-900 to-pink-700 text-white rounded-[22px] grid gap-2 px-5 py-5">
           <Image
-            src="/images/card3.svg"
-            alt="AI-Powered Interview Preparation"
+            src="/images/collab.svg"
+            alt="Collaborate with peers"
             width={150}
-            height={180}
+            height={150}
             objectFit="contain"
           />
-          <h1 className="text-[20px] font-bold">AI-Powered Interview Preparation</h1>
-          <p className="text-[13px] pr-5 leading-5">
-            Prepare for your next job interview with our AI-Powered Interview Preparation tools. Access personalized questions, mock interviews, and feedback tailored to your skills and target roles. Gain confidence and improve your chances of success in the competitive job market.
+          <h1 className="text-[18px] md:text-[20px] font-bold">Collaborate with peers</h1>
+          <p className="text-[12px] md:text-[13px] pr-5 leading-7">
+            Ask questions, start discussions, create projects and share
+            resources.
+          </p>
+        </div>
+
+        <div className="bg-purple-900 text-white rounded-[22px] grid gap-2 px-5 py-5">
+          <Image
+            src="/images/connect.svg"
+            alt="Showcase your skills"
+            width={150}
+            height={150}
+            objectFit="contain"
+          />
+          <h1 className="text-[18px] md:text-[20px] font-bold">Showcase your skills</h1>
+          <p className="text-[12px] md:text-[13px] pr-5 leading-7">
+            Your achievements are rewarded with medals that you can showcase and
+            share with your network to stand out.
           </p>
         </div>
       </div>

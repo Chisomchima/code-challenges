@@ -1,5 +1,4 @@
 import cn from "../../../lib/utils.js";
-import {Marquee} from "../Marquee.jsx";
 
 const reviews = [
   {
@@ -38,73 +37,66 @@ const reviews = [
     body: "I'm at a loss for words. This is amazing. I love it.",
     img: "https://avatar.vercel.sh/james",
   },
+  {
+    name: "Jane",
+    username: "@jane",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jane",
+  },
+  {
+    name: "Jenny",
+    username: "@jenny",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jenny",
+  },
 ];
 
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
-
-// Reusable Review Card Component
-const ReviewCard = ({ img, name, username, body }) => {
-  return (
-    <figure
-      className={cn(
-        "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4 shadow-lg",
-        // light styles
-        "border-gray-950/[.1] bg-gray-50 hover:bg-gray-100",
-        // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-800 dark:hover:bg-gray-700"
-      )}
-    >
-      <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="40" height="40" alt="" src={img} />
-        <div className="flex flex-col">
-          <figcaption className="text-base font-semibold dark:text-white">
-            {name}
-          </figcaption>
-          <p className="text-xs font-medium text-gray-600 dark:text-gray-400">
-            {username}
-          </p>
-        </div>
-      </div>
-      <blockquote className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-        {body}
-      </blockquote>
-    </figure>
-  );
-};
-
-// MarqueeDemo Component
-export function MarqueeDemo() {
-  return (
-    <div className="relative flex h-auto mx-10 flex-col items-center justify-center overflow-hidden">
-      {/* Top Row Marquee */}
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
-    </div>
-  );
-}
-
-// Full Review Page Component
-export default function ReviewsPage() {
-  return (
-    <section className="w-full dark:bg-gray-900 py-16">
-   
-      <div className="text-center mb-12">
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
-          See What Our Users Are Saying
-        </h1>
-        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Our users love what we do, and they can’t stop sharing their thoughts.
-          Here’s what a few of them have to say about their experience.
+const ReviewCard = ({ img, name, username, body }) => (
+  <figure
+    className={cn(
+      "relative w-full md:w-80 cursor-pointer overflow-hidden border p-6 shadow-sm bg-white rounded-[1rem] flex flex-col"
+    )}
+  >
+    <div className="flex items-center gap-4 mb-4">
+      <img className="rounded-full" width="50" height="50" alt="" src={img} />
+      <div className="flex flex-col">
+        <figcaption className="text-lg font-semibold dark:text-white">
+          {name}
+        </figcaption>
+        <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+          {username}
         </p>
       </div>
-      
+    </div>
+    <blockquote className="text-sm text-gray-700 dark:text-gray-300">
+      {body}
+    </blockquote>
+  </figure>
+);
 
-      <MarqueeDemo />
-      
+export default function ReviewsPage() {
+  return (
+    <section className="w-full h-auto flex items-center justify-center py-10">
+      <div className="w-full h-auto flex flex-col items-center justify-center">
+        <div className="text-center mb-12">
+          <h1 className="text-[28px] md:text-[35px] font-extrabold text-center">
+            See What Our Users Are Saying
+          </h1>
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-sm md:text-base">
+            Our users love what we do, and they can’t stop sharing their
+            thoughts. Here’s what a few of them have to say about their
+            experience.
+          </p>
+        </div>
+
+        <div className="flex items-center justify-center w-full px-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {reviews.map((review) => (
+              <ReviewCard key={review.username} {...review} />
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

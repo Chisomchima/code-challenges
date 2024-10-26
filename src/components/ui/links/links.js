@@ -4,10 +4,6 @@ import { IoMdClose } from "react-icons/io";
 
 const Links = ({ direction = "row", toggle }) => {
   const links = [
-    // {
-    //   title: "Challenges",
-    //   path: "/challenges",
-    // },
     {
       title: "Articles",
       path: "/articles",

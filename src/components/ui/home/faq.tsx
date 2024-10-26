@@ -38,44 +38,42 @@ function FAQ() {
   };
 
   return (
-    <div>
-      <section className="py-20 bg-pink-500 h-[80vh] flex items-center justify-center mb-10 mt-5" id="faq">
-        <div className="container mx-auto px-4">
-        <h1 className="text-[35px] font-extrabold text-center md:text-[50px]">
-          Frequently asked questions
+    <div className="flex items-center justify-center w-full h-auto pb-[100px] px-5">
+      <div className="w-full max-w-3xl">
+        <h1 className="text-3xl md:text-4xl lg:text-[55px] font-extrabold text-center mb-6">
+          Frequently Asked Questions
         </h1>
 
-          <div className="flex flex-col gap-4">
-            {FAQs.map((faq, index) => (
-              <div
-                key={index}
-                className={`bg-white rounded-lg shadow-lg transition-transform transform cursor-pointer overflow-hidden duration-300 ${
-                  openedIndex === index ? "scale-105" : "scale-100"
-                }`}
-                onClick={() => toggleFAQ(index)}
-              >
-                <div className="flex justify-between items-center p-6 hover:bg-purple-50 transition-colors duration-200">
-                  <h3 className="text-lg font-semibold text-purple-800">
-                    {faq.question}
-                  </h3>
-                  <span
-                    className={`transform transition-transform duration-300 ${
-                      openedIndex === index ? "rotate-90" : ""
-                    }`}
-                  >
-                    <RxDoubleArrowRight size={25} className="text-purple-800" />
-                  </span>
-                </div>
-                {openedIndex === index && (
-                  <div className="px-6 pb-4 text-gray-600 transition-all duration-300">
-                    <p>{faq.answer}</p>
-                  </div>
-                )}
+        <div className="flex flex-col gap-4">
+          {FAQs.map((faq, index) => (
+            <div
+              key={index}
+              className={`bg-white rounded-lg shadow-lg transition-transform transform cursor-pointer overflow-hidden duration-300 ${
+                openedIndex === index ? "scale-105" : "scale-100"
+              }`}
+              onClick={() => toggleFAQ(index)}
+            >
+              <div className="flex justify-between items-center p-4 md:p-6 hover:bg-purple-50 transition-colors duration-200">
+                <h3 className="text-lg md:text-xl font-semibold">
+                  {faq.question}
+                </h3>
+                <span
+                  className={`transform transition-transform duration-300 ${
+                    openedIndex === index ? "rotate-90" : ""
+                  }`}
+                >
+                  <RxDoubleArrowRight size={25} />
+                </span>
               </div>
-            ))}
-          </div>
+              {openedIndex === index && (
+                <div className="px-4 pb-4 text-gray-600 transition-all duration-300 md:px-6">
+                  <p className="text-sm md:text-base">{faq.answer}</p>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
     </div>
   );
 }
