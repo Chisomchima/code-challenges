@@ -5,7 +5,7 @@ import Image from "next/image";
 
 function Hero() {
   return (
-    <section className="flex flex-col lg:flex-row items-center h-auto lg:h-[100vh]">
+    <section className="flex flex-col lg:flex-row items-center h-auto lg:h-[100vh] pt-[30px]">
       <div className="p-5 lg:p-10 flex flex-col justify-center h-full gap-5">
         <span className="text-[35px] font-extrabold leading-tight md:text-[45px] mt-10 lg:text-[60px] border-b pb-5 lg:pb-10 border-black">
           Break into tech solving real-world problems

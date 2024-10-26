@@ -48,7 +48,7 @@ function FAQ() {
           {FAQs.map((faq, index) => (
             <div
               key={index}
-              className={`bg-white rounded-lg shadow-lg transition-transform transform cursor-pointer overflow-hidden duration-300 ${
+              className={`bg-white rounded-[1rem] shadow-lg transition-transform transform cursor-pointer overflow-hidden duration-300 ${
                 openedIndex === index ? "scale-105" : "scale-100"
               }`}
               onClick={() => toggleFAQ(index)}

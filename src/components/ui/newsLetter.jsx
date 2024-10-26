@@ -42,9 +42,15 @@ function NewsLetter() {
         </div>
 
         <div className="w-full p-10 rounded-tr-[1rem] rounded-br-[1rem] lg:rounded-r-[1rem] flex flex-col justify-center bg-white">
-          <h1 className="text-2xl md:text-3xl font-extrabold mb-4">Stay Updated!</h1>
+          <h1 className="text-2xl md:text-3xl font-extrabold mb-4">
+            Stay Updated!
+          </h1>
           <p className="text-gray-400 mb-8 leading-7 text-sm md:text-base">
-            Subscribe to our newsletter for the latest updates, exclusive resources, and exciting announcements. You'll receive curated content tailored to your interests, including tips and insights about upcoming events. Don't miss out on valuable opportunities to engage with our community!
+            Subscribe to our newsletter for the latest updates, exclusive
+            resources, and exciting announcements. You'll receive curated
+            content tailored to your interests, including tips and insights
+            about upcoming events. Don't miss out on valuable opportunities to
+            engage with our community!
           </p>
           <form
             onSubmit={handleSubmit}
@@ -60,10 +66,9 @@ function NewsLetter() {
             />
             <button
               type="submit"
-              className="bg-purple-900 text-white px-6 py-3 rounded-lg hover:bg-purple-800 transition flex items-center"
+              className="bg-purple-900 w-full md:w-auto justify-center text-white px-6 py-3 rounded-lg hover:bg-purple-800 transition flex items-center"
             >
               SUBSCRIBE
-              <FaChevronRight className="ml-2" />
             </button>
             {successMessage && (
               <p className="mt-4 text-green-400">{successMessage}</p>
@@ -71,7 +76,7 @@ function NewsLetter() {
           </form>
 
           {/* Social Media Links */}
-          <div className="mt-6 flex flex-wrap space-x-4">
+          <div className="mt-6 flex flex-wrap space-x-4 items-center justify-center">
             <a
               href="https://www.instagram.com/YOUR_INSTAGRAM"
               target="_blank"
