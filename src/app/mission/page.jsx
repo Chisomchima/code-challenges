@@ -10,7 +10,7 @@ function Page() {
   return (
     <section
       id="article"
-      className="pb-[5%] md:pb-[2%] pt-[10%] md:mt-10 md:pt-[1%] px-5 md:px-20 flex items-center justify-center flex-col gap-20 md:gap-60"
+      className="pb-[5%] md:pb-[2%] pt-[10%] md:mt-10 md:pt-[1%] px-5 md:px-20 flex items-center justify-center flex-col gap-10 md:gap-20"
     >
       
       <div className="md:flex w-full md:pt-20 mt-10">
