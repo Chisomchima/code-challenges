@@ -23,14 +23,14 @@ function Hero() {
         </button>
       </div>
 
-      <div className="w-full lg:w-auto flex justify-center p-5 lg:p-10">
+      <div className="w-full flex justify-center p-5 lg:p-10">
         <Image
           src={"/images/challenge.svg"}
           alt="Description of image"
           width={100}
           height={100} // Adjusted height to make it a square for responsiveness
           layout="responsive"
-          objectFit="contain"
+          objectFit="cover"
           className="rounded-lg"
         />
       </div>
