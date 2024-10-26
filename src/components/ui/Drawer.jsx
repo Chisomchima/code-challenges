@@ -6,7 +6,7 @@ import { IoMdClose } from "react-icons/io";
 const Drawer = ({ isOpen, onClose, links }) => {
   return (
     <div
-      className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${
+      className={`fixed z-[11] inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${
         isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
