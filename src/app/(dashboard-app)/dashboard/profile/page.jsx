@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import {Tabs, Tab} from '../../../components/ui/Tab'
+import {Tabs, Tab} from '../../../../components/ui/Tab'
 
 
 function page() {

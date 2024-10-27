@@ -1,10 +1,7 @@
-
 "use client";
-{/* eslint-disable react/no-unescaped-entities */}
 import React from "react";
 import Image from "next/image";
-import { FaArrowRight } from "react-icons/fa";
-import Pills from "../../components/ui/pills";
+import Pills from "../../../../components/ui/pills";
 import { useRouter } from "next/navigation";
 
 function Page() {
@@ -88,69 +85,35 @@ function Page() {
   ];
   const router = useRouter();
   const handleClick = (id) => {
-    router.push(`/dashboard/${id}`);
+    router.push(`/challenges/${id}`);
   };
   return (
-    <section
+    <div
       id="challenges"
-      className="pb-[5%] md:pb-[2%] pt-[10%] md:pt-[1%] px-10 md:px-20 flex items-center justify-center flex-col gap-10"
+      className="pb-[5%] md:pb-[2%] pt-[10%] md:pt-[1%] px-10 flex items-center justify-center flex-col h-max gap-10"
     >
       <div class="absolute top-[-8rem] right-[-8rem] w-50 h-50 bg-gradient-to-r from-purple-400 via-purple-600  opacity-70 to-pink-700 rounded-full mix-blend-multiply filter blur-[100px] md:w-52 md:h-52 lg:w-[500px] lg:h-[500px] animate-blob animation-delay-4000"></div>
-
-      <div className="md:flex w-full pt-20">
-        <div className="flex justify-center items-start flex-col pb-10 md:p-6 rounded-lg w-full md:w-1/2">
-          <span className="text-2xl md:text-7xl font-extrabold pb-1 mb-5">
-            Challenges
-          </span>
-          <span className="text-xl md:text-[25px] font-normal mb-8  text-gray-800">
-            It's time to start building.
-          </span>
-          <ul className="space-y-4 text-xl md:text-[20px] text-gray-600">
-            <li className="flex items-center space-x-3">
-              <FaArrowRight className=" text-gray-600 mr-2" size={20} />
-              <span>Hands-on Projects</span>
-            </li>
-            <li className="flex items-center space-x-3">
-              <FaArrowRight className=" text-gray-600 mr-2" size={20} />
-              <span>Master Essential Tools</span>
-            </li>
-            <li className="flex items-center space-x-3">
-              <FaArrowRight className=" text-gray-600 mr-2" size={20} />
-              <span>Create Impressive Portfolio Pieces</span>
-            </li>
-            <li className="flex items-center space-x-3">
-              <FaArrowRight className=" text-gray-600 mr-2" size={20} />
-              <span>For All Skill Levels</span>
-            </li>
-          </ul>
-          {/* <h2 className="mt-6 text-xl md:text-2xl font-semibold text-gray-700">
-            Start coding and elevate your frontend development skills today.
-          </h2> */}
-        </div>
-
-        <div className="md:pt-[8%] w-full md:w-1/2 flex justify-center">
-          <div className="w-4/5">
-            <Image
-              src={"/images/challenge.svg"}
-              alt="Description of image"
-              width={100}
-              height={10}
-              layout="responsive"
-              objectFit="contain"
-              className="rounded-lg"
-            />
-          </div>
+      <div class="absolute bottom-[-30rem] left-[-8rem] w-50 h-50 bg-gradient-to-r from-purple-600 via-pink-400  opacity-70 to-pink-300 rounded-full mix-blend-multiply filter blur-[100px] md:w-52 md:h-52 lg:w-[500px] lg:h-[500px] animate-blob animation-delay-4000"></div>
+      <div
+        style={{
+          backgroundImage:
+            "url('https://images.pexels.com/photos/2330137/pexels-photo-2330137.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        className="rounded-lg w-[100%] md:w-full flex justify-center items-center md:items-start py-10 mt-20"
+      >
+        <div>
+          <h1 className="text-white text-[36px] sm:text-[48px] md:text-[64px] lg:text-[88px] font-extrabold">
+            My Challenges
+          </h1>
         </div>
       </div>
       <div className="flex items-center justify-center gap-2 px-10 flex-wrap">
-        <Pills label={"Accessibility"} />
-        <Pills label={"Performance"} />
-        <Pills label={"Responsiveness"} />
-        <Pills label={"Animations"} />
-        <Pills label={"Optimization"} />
-        <Pills label={"portfolio"} />
+        <Pills label={"Active challenges"} />
+        <Pills label={"Completed challenges"} />
       </div>
-      <div className="w-full grid  md:grid-cols-4 px-2 gap-5">
+      <div className="w-full h-max grid  md:grid-cols-2 px-2 gap-5">
         {cardData.map((card, index) => (
           <div
             onClick={() => handleClick(card.id)}
@@ -159,7 +122,7 @@ function Page() {
               predefinedBackgroundColors[
                 index % predefinedBackgroundColors.length
               ]
-            }  text-white h-[300px] rounded-[22px] grid gap-2 px-2 md:px-10 py-5 cursor-pointer`}
+            }  text-white h-[300px] medal-card rounded-[22px] grid gap-2 px-2 md:px-10 py-5 cursor-pointer  transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl shadow-lg`}
           >
             <Image
               src={card.imageSrc}
@@ -175,7 +138,7 @@ function Page() {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
 

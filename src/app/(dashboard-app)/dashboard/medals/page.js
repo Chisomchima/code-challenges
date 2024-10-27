@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import MedalCard from "../../../components/ui/medalCard";
+import MedalCard from "../../../../components/ui/medalCard";
 
 const medalData = [
   {

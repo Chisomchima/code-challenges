@@ -3,14 +3,16 @@ import SideItems from "./SidebarItems";
 import Link from "next/link";
 import { FaRobot } from "react-icons/fa6";
 import { FaTimes, FaHome, FaUserCircle, FaMedal, FaCog } from "react-icons/fa";
+import { FaPeopleLine } from "react-icons/fa6";
 
 function Sidebar({ isOpen, toggleSidebar }) {
   const sidebarLinks = [
-    { icon: <FaHome />, link: "/dashboard", text: "All challenges" },
+    { icon: <FaHome />, link: "/dashboard", text: "Dashboard" },
     { icon: <FaUserCircle />, link: "/dashboard/myChallenges", text: "My Challenges" },
     { icon: <FaMedal />, link: "/dashboard/medals", text: "Medals" },
+    { icon: <FaPeopleLine />, link: "/dashboard/community", text: "Community" },
     { icon: <FaRobot />, link: "/dashboard/interview-prep", text: "Interview Prep" },
-    { icon: <FaCog />, link: "/dashboard/settings", text: "Settings" },
+    { icon: <FaCog />, link: "/dashboard/profile", text: "Your Profile" },
   ];
 
   return (
