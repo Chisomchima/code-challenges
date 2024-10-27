@@ -1,12 +1,13 @@
 "use client";
-import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import Image from "next/image";
-import { signIn } from "next-auth";
 import { toast } from "react-toastify";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useRegister } from "../../hooks/useAuth";
+import Loader from "../../components/ui/loader";
 
 const SignupSchema = Yup.object().shape({
   firstname: Yup.string().required("First name is required"),
@@ -18,28 +19,37 @@ const SignupSchema = Yup.object().shape({
 });
 
 const Signup = () => {
-  const [loading, setLoading] = useState(false);
+  const { mutate: register, data, isLoading } = useRegister();
+  const router = useRouter();
+  console.log(data, "data");
+
+  if (data && data?.success) {
+    toast.success("User Created", {
+      toastId: "successful-registeration",
+    });
+    router.push("/login");
+  }
+
+  if ((data && data?.status !== 200) || data?.status !== 201) {
+    toast.error(data?.response?.data?.error?.error || data?.message, {
+      toastId: "error-registeration",
+    });
+  }
 
   const submitForm = async (data) => {
-    setLoading(true);
     try {
-      const res = await signIn("credentials", {
+      await register({
+        firstName: data.firstname,
+        lastName: data.lastname,
         email: data.email,
         password: data.password,
-        redirect: false,
       });
-
-      if (res.error) {
-        toast.error("Invalid credentials, please try again.");
-      } else {
-        toast.success("Signup successful!");
-        // Optional: Redirect or other actions after successful signup
-      }
     } catch (error) {
+      console.log(error, "error");
       toast.error("An unexpected error occurred. Please try again later.");
     }
-    setLoading(false);
   };
+
 
   return (
     <div className="h-screen bg-white fixed top-0 bottom-0 z-[1000] right-0 left-0 flex flex-col md:flex-row">
@@ -53,8 +63,8 @@ const Signup = () => {
         />
       </div>
 
-      <div className="md:w-1/2 w-full h-2/3 md:h-full flex items-center justify-center px-4 md:px-0">
-        {/* Signup Box */}
+      <div className="md:w-1/2 w-full h-full md:h-full flex items-center justify-center px-4 md:px-0">
+       {isLoading && <Loader/>}
         <div className="w-full max-w-md px-8 py-6 rounded-lg">
           <h2 className="text-3xl font-semibold text-purple-800 mb-2">
             Create an Account
@@ -63,7 +73,12 @@ const Signup = () => {
 
           {/* Formik Form */}
           <Formik
-            initialValues={{ firstname: "", lastname: "", email: "", password: "" }}
+            initialValues={{
+              firstname: "",
+              lastname: "",
+              email: "",
+              password: "",
+            }}
             validationSchema={SignupSchema}
             onSubmit={submitForm}
           >
@@ -141,8 +156,11 @@ const Signup = () => {
 
                 {/* Links */}
                 <div className="flex items-center justify-between text-[12px] mb-6">
-                  <Link href="/login" className="text-purple-500 hover:underline">
-                   Already have an account? Login here.
+                  <Link
+                    href="/login"
+                    className="text-purple-500 hover:underline"
+                  >
+                    Already have an account? Login here.
                   </Link>
                 </div>
 
@@ -150,9 +168,9 @@ const Signup = () => {
                 <button
                   type="submit"
                   className="w-full bg-purple-900 hover:bg-purple-800 text-white rounded-[1rem] font-semibold focus:outline-none transition-colors duration-200 py-3"
-                  disabled={loading || isSubmitting}
+                  disabled={isLoading || isSubmitting}
                 >
-                  {loading ? "Signing up..." : "Sign Up"}
+                  {isLoading ? "Signing up..." : "Sign Up"}
                 </button>
               </Form>
             )}

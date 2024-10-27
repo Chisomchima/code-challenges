@@ -1,46 +1,21 @@
-import { getServerSession } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
-import { toast } from 'react-toastify';
-
-import { baseUrl } from '../../../../utils/request';
-import { request } from '../../../../utils/request';
+import { getServerSession } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import { request } from "../../../../utils/request";
 
 const credentialsProviderOptions = {
-  name: 'Login',
-  credentials: {
-    email: {
-      label: 'Email Address',
-      type: 'email',
-      placeholder: 'john2gmail.com',
-    },
-    password: { label: 'Password', type: 'password', placeholder: 'Password' },
-  },
-  authorize: async (credentials) => {
-    if (credentials?.email === '' || credentials?.password === '') {
-      return null;
-    }
-
-    const { email, password } = credentials || { email: 'example@gmail.com' };
+  name: "Login",
+  id: "login",
+  async authorize(credentials) {
+    const { email, password } = credentials;
     try {
-      const json = await request('POST', `${baseUrl}/login`, {
+      const json = await request("POST", `/auth/login`, {
         data: { email, password },
       });
-
-      if (json.status && json.data && json.data.token) {
-        const user = {
-          data: {
-            token: json.data.token,
-          },
-          id: '',
-        };
-        return user;
-      }
+      return json;
     } catch (err) {
-      toast.error('Invalid email or password');
-      return null;
+      console.error("Authorization error:", err);
+      return err
     }
-    toast.error('Invalid email or password');
-    return null;
   },
 };
 
@@ -48,21 +23,23 @@ export const authOptions = {
   providers: [CredentialsProvider(credentialsProviderOptions)],
   callbacks: {
     async jwt({ token, user }) {
+      console.log({user, token})
       if (user) {
-        token.access = user.data.token;
+        token.access = user.token;
       }
       await Promise.resolve();
-      return token;
+      return {user, token};
     },
     async session({ session, token }) {
-      session.token = token.access;
-      await Promise.resolve();
-      return session;
+      console.log({session, token})
+      // session.token = token.access;
+      // await Promise.resolve();
+      return {session, token};
     },
   },
 
   pages: {
-    signIn: '/login',
+    signIn: "/login",
   },
 };
 

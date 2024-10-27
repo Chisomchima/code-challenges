@@ -2,9 +2,11 @@
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { useRouter } from "next/navigation";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import Image from "next/image";
-import { signIn } from "next-auth";
+import { signIn } from "next-auth/react";
+import Loader from '../../components/ui/loader'
 import { toast } from "react-toastify";
 import Link from "next/link";
 
@@ -17,27 +19,34 @@ const SignupSchema = Yup.object().shape({
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
+  const router = useRouter()
 
   const submitForm = async (data) => {
     setLoading(true);
     try {
-      const res = await signIn("credentials", {
+      const res = await signIn("login", {
+        redirect: false,
         email: data.email,
         password: data.password,
-        redirect: false,
       });
-
-      if (res.error) {
-        toast.error("Invalid credentials, please try again.");
-      } else {
+      
+      console.log("signIn response:", res); // Log response here
+  
+      if (res?.error) {
+        toast.error(res.error); // Display the error
+      } else if (res?.ok) {
         toast.success("Login successful!");
-        // Optional: Redirect or other actions after successful login
+        router.push("/dashboard");
       }
     } catch (error) {
+      console.error("SignIn Error:", error);
       toast.error("An unexpected error occurred. Please try again later.");
     }
     setLoading(false);
   };
+  
+  
+  
 
   return (
     <div className="h-screen bg-white fixed top-0 bottom-0 z-[1000] right-0 left-0 flex flex-col md:flex-row">
@@ -52,7 +61,7 @@ const Login = () => {
       </div>
 
       <div className="md:w-1/2 w-full h-2/3 md:h-full flex items-center justify-center px-4 md:px-0">
-        {/* Login Box */}
+      {loading && <Loader />}
         <div className="w-full max-w-md px-8 py-6 rounded-lg">
           <h2 className="text-3xl font-semibold text-purple-800 mb-2">
             Welcome!
@@ -109,7 +118,10 @@ const Login = () => {
 
                 {/* Forgot Password Link */}
                 <div className="flex items-center justify-between text-[12px] mb-6">
-                  <Link href="/signup" className="text-purple-500 hover:underline">
+                  <Link
+                    href="/signup"
+                    className="text-purple-500 hover:underline"
+                  >
                     Sign Up
                   </Link>
                   <Link href="#" className="text-purple-500 hover:underline">

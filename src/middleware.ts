@@ -10,7 +10,7 @@ export default withAuth(
       return NextResponse.redirect(new URL('/login', request.url));
     }
 
-    if (token && pathname.match(/signin/)) {
+    if (token && pathname.match(/login/)) {
       return NextResponse.redirect(new URL(`/dashboard`, request.url));
     }
   },
