@@ -4,7 +4,7 @@
 }
 import React from "react";
 import Image from "next/image";
-import { FaArrowRight } from "react-icons/fa";
+import { Tabs, Tab } from "../../../components/ui/Tab";
 import Pills from "../../../components/ui/pills";
 import { useRouter } from "next/navigation";
 
@@ -121,87 +121,120 @@ function Page() {
         </div>
       </div>
 
-      <div className="w-full bg-white p-5 sm:p-8 text-gray-800 rounded-[20px] sm:rounded-[30px]">
-        {/* Stats Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-10 border-b pb-4 md:pb-5 border-purple-200">
-          {/* Individual Stat Card */}
-          <div className="bg-pink-100 p-4 sm:p-6 rounded-[1rem]">
-            <h2 className="text-base sm:text-lg font-semibold mb-2 sm:mb-4 flex items-center space-x-2">
-              <span role="img" aria-label="graduation">
-                💪
-              </span>
-              <span className="text-pink-500">Total Active Challenges</span>
-            </h2>
-            <p className="text-gray-500 text-sm sm:text-base">
-              In total, you’ve taken part in{" "}
-              <span className="text-pink-500 font-bold">0 Challenges</span>.
-              Take part in real-world challenges.
-            </p>
-          </div>
-          {/* Repeat for other cards */}
-          {/* Example for "Completed Challenges" */}
-          <div className="bg-purple-100 p-4 sm:p-6 rounded-[1rem]">
-            <h2 className="text-base sm:text-lg font-semibold mb-2 sm:mb-4 flex items-center space-x-2 text-purple-600">
-              <span role="img" aria-label="quiz">
-                📋
-              </span>
-              <span>Completed Challenges</span>
-            </h2>
-            <p className="text-gray-500 text-sm sm:text-base">
-              In total, You have Completed{" "}
-              <span className="text-purple-600 font-bold">0 Challenges</span>.
-            </p>
-          </div>
-          {/* Last card example */}
-          <div className="bg-yellow-50 p-4 sm:p-6 rounded-[1rem]">
-            <h2 className="text-base sm:text-lg font-semibold mb-2 sm:mb-4 flex items-center space-x-2">
-              <span role="img" aria-label="credits">
-                🥇
-              </span>
-              <span className="text-yellow-600">Claimed Medals</span>
-            </h2>
-            <p className="text-gray-500 text-sm sm:text-base">
-              In total, you’ve earned{" "}
-              <span className="text-yellow-600 font-bold">0 Medals</span>.
-            </p>
-          </div>
+      {/* Stats Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        {/* Individual Stat Card */}
+        <div className="bg-pink-100 p-4 sm:p-6 rounded-[1rem] border-2 border-purple-700">
+          <h2 className="text-base sm:text-lg font-semibold mb-2 sm:mb-4 flex items-center space-x-2">
+            <span role="img" aria-label="graduation">
+              💪
+            </span>
+            <span className="text-pink-500">Total Active Challenges</span>
+          </h2>
+          <p className="text-gray-500 text-sm sm:text-base">
+            In total, you’ve taken part in{" "}
+            <span className="text-pink-500 font-bold">0 Challenges</span>. Take
+            part in real-world challenges.
+          </p>
         </div>
-        {/* Pills Section */}
-        <div className="flex items-center justify-center gap-2 px-5 sm:px-10 flex-wrap pb-8 md:pb-10">
-          <Pills label={"Frontend"} />
-          <Pills label={"Backend"} />
-          <Pills label={"Fullstack"} />
-          <Pills label={"Data Science"} />
-          <Pills label={"Devops"} />
+
+        {/* Last card example */}
+        <div className="bg-yellow-50 p-4 sm:p-6 rounded-[1rem] border-2 border-purple-700">
+          <h2 className="text-base sm:text-lg font-semibold mb-2 sm:mb-4 flex items-center space-x-2">
+            <span role="img" aria-label="credits">
+              🥇
+            </span>
+            <span className="text-yellow-600">Claimed Medals</span>
+          </h2>
+          <p className="text-gray-500 text-sm sm:text-base">
+            In total, you’ve earned{" "}
+            <span className="text-yellow-600 font-bold">0 Medals</span>.
+          </p>
         </div>
-        {/* Card Section */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 px-1 sm:px-2">
-          {cardData.map((card, index) => (
-            <div
-              onClick={() => handleClick(card.id)}
-              key={card.id}
-              className={`${
-                predefinedBackgroundColors[
-                  index % predefinedBackgroundColors.length
-                ]
-              } text-white h-[250px] sm:h-[300px] rounded-[18px] sm:rounded-[22px] grid gap-2 p-4 sm:px-6 sm:py-5 cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl`}
-            >
-              <Image
-                src={card.imageSrc}
-                alt={`Image for ${card.title}`}
-                width={60}
-                height={60}
-                className="w-12 h-12 sm:w-20 sm:h-20 object-contain"
-              />
-              <h1 className="text-[14px] sm:text-[16px]">{card.title}</h1>
-              <p className="text-[10px] sm:text-[12px] md:w-[85%] font-medium">
-                {card.description}
-              </p>
-            </div>
-          ))}
+        {/* Example for "Completed Challenges" */}
+        <div className="bg-purple-100 p-4 sm:p-6 rounded-[1rem] border-2 border-purple-700">
+          <h2 className="text-base sm:text-lg font-semibold mb-2 sm:mb-4 flex items-center space-x-2 text-purple-600">
+            <span role="img" aria-label="quiz">
+              📋
+            </span>
+            <span>Completed Challenges</span>
+          </h2>
+          <p className="text-gray-500 text-sm sm:text-base">
+            In total, You have Completed{" "}
+            <span className="text-purple-600 font-bold">0 Challenges</span>.
+          </p>
         </div>
       </div>
-      <div className="absolute top-[-8rem] right-[-8rem] w-40 h-40 bg-gradient-to-r from-purple-400 via-purple-600 opacity-70 to-pink-700 rounded-full mix-blend-multiply filter blur-[80px] sm:w-52 sm:h-52 lg:w-[500px] lg:h-[500px] animate-blob animation-delay-4000"></div>
+
+      <div className="w-full bg-white mb-20 p-5 sm:p-8 text-gray-800 rounded-[20px] sm:rounded-[30px]">
+        <Tabs>
+          <Tab title="Frontend">
+            <div className="flex items-center justify-center gap-2 px-5 sm:px-10 flex-wrap pb-8 md:pb-10">
+              <Pills label={"Beginner"} />
+              <Pills label={"Medium"} />
+              <Pills label={"Advanced"} />
+            </div>
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 px-1 sm:px-2">
+              {cardData.map((card, index) => (
+                <div
+                  onClick={() => handleClick(card.id)}
+                  key={card.id}
+                  className={`${
+                    predefinedBackgroundColors[
+                      index % predefinedBackgroundColors.length
+                    ]
+                  } text-white h-[250px] sm:h-[300px] rounded-[18px] sm:rounded-[22px] grid gap-2 p-4 sm:px-6 sm:py-5 cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl`}
+                >
+                  <Image
+                    src={card.imageSrc}
+                    alt={`Image for ${card.title}`}
+                    width={60}
+                    height={60}
+                    className="w-12 h-12 sm:w-20 sm:h-20 object-contain"
+                  />
+                  <h1 className="text-[14px] sm:text-[16px]">{card.title}</h1>
+                  <p className="text-[10px] sm:text-[12px] md:w-[85%] font-medium">
+                    {card.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Tab>
+
+          <Tab title="Backend">
+            <div className="flex items-center justify-center gap-2 px-5 sm:px-10 flex-wrap pb-8 md:pb-10">
+              <Pills label={"Beginner"} />
+              <Pills label={"Medium"} />
+              <Pills label={"Advanced"} />
+            </div>
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 px-1 sm:px-2">
+              {cardData.map((card, index) => (
+                <div
+                  onClick={() => handleClick(card.id)}
+                  key={card.id}
+                  className={`${
+                    predefinedBackgroundColors[
+                      index % predefinedBackgroundColors.length
+                    ]
+                  } text-white h-[250px] sm:h-[300px] rounded-[18px] sm:rounded-[22px] grid gap-2 p-4 sm:px-6 sm:py-5 cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl`}
+                >
+                  <Image
+                    src={card.imageSrc}
+                    alt={`Image for ${card.title}`}
+                    width={60}
+                    height={60}
+                    className="w-12 h-12 sm:w-20 sm:h-20 object-contain"
+                  />
+                  <h1 className="text-[14px] sm:text-[16px]">{card.title}</h1>
+                  <p className="text-[10px] sm:text-[12px] md:w-[85%] font-medium">
+                    {card.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Tab>
+        </Tabs>
+      </div>
     </section>
   );
 }

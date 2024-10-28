@@ -5,16 +5,17 @@ import { IoMenu } from "react-icons/io5";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-function Navbar() {
+function DashboardNavbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const Router = useRouter();
-
   const links = [
-    { title: "Articles", path: "/articles" },
-    { title: "Products", path: "/products" },
-    { title: "Mission", path: "/mission" },
+    { path: "/dashboard", title: "Dashboard" },
+    { path: "/dashboard/myChallenges", title: "My Challenges" },
+    { path: "/dashboard/medals", title: "Medals" },
+    { path: "/dashboard/community", title: "Community" },
+    { path: "/dashboard/interview-prep", title: "Interview Prep" },
+    { path: "/dashboard/profile", title: "Your Profile" },
   ];
-
   const navigateTo = (path) => {
     Router.push(path);
     setIsDrawerOpen(false); // Close the drawer after navigation
@@ -27,20 +28,6 @@ function Navbar() {
       </Link>
 
       <div className="flex items-center justify-end gap-5">
-        {/* Links for larger screens */}
-        <ul className="hidden sm:flex items-center justify-center gap-10 flex-1">
-          {links.map((link, index) => (
-            <Link
-              href={link.path}
-              key={index}
-              className="hover:underline"
-              onClick={() => navigateTo(link.path)} // Navigate and close the drawer
-            >
-              {link.title}
-            </Link>
-          ))}
-        </ul>
-
         <Drawer
           isOpen={isDrawerOpen}
           onClose={() => setIsDrawerOpen(false)}
@@ -57,12 +44,6 @@ function Navbar() {
             className="h-8 w-10 rounded-full"
           />
         </div>
-        <Link
-            href="/login"
-            className="py-2 px-4 bg-purple-700 rounded-[1rem] hover:bg-purple-600 hidden md:flex"
-          >
-            Login
-          </Link>
 
         <div className="sm:hidden">
           <IoMenu
@@ -75,4 +56,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default DashboardNavbar;

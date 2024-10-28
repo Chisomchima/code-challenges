@@ -6,6 +6,9 @@ const credentialsProviderOptions = {
   name: "Login",
   id: "login",
   async authorize(credentials) {
+    if (credentials?.email === '' || credentials?.password === '') {
+      return null;
+    }
     const { email, password } = credentials;
     try {
       const json = await request("POST", `/auth/login`, {
@@ -24,14 +27,15 @@ export const authOptions = {
   callbacks: {
     async jwt({ token, user }) {
       console.log({user, token})
+
       if (user) {
-        token.access = user.token;
+        token.access = user?.content?.token?.token;
       }
       await Promise.resolve();
       return {user, token};
     },
     async session({ session, token }) {
-      console.log({session, token})
+      // console.log({session, token})
       // session.token = token.access;
       // await Promise.resolve();
       return {session, token};
