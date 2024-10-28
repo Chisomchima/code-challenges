@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import Drawer from "./Drawer"; // Import the Drawer component
+import Drawer from "./Drawer";
 import { IoMenu } from "react-icons/io5";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 function Navbar() {
@@ -22,8 +23,16 @@ function Navbar() {
 
   return (
     <nav className="w-full z-[200] flex items-center justify-between p-2 mx-auto h-[70px] bg-purple-900 text-white fixed top-0">
-      <Link href="/" className="text-[30px] ml-5 font-bold">
-        DevSpace
+      <Link href="/" className="w-[120px]">
+      <Image
+              src={"/images/full-logo.png"}
+              alt="Description of image"
+              width={100}
+              height={10}
+              layout="responsive"
+              objectFit="contain"
+              className="rounded-lg"
+            />
       </Link>
 
       <div className="flex items-center justify-end gap-5">
@@ -58,11 +67,11 @@ function Navbar() {
           />
         </div>
         <Link
-            href="/login"
-            className="py-2 px-4 bg-purple-700 rounded-[1rem] hover:bg-purple-600 hidden md:flex"
-          >
-            Login
-          </Link>
+          href="/login"
+          className="py-2 px-4 bg-purple-700 rounded-[1rem] hover:bg-purple-600 hidden md:flex"
+        >
+          Login
+        </Link>
 
         <div className="sm:hidden">
           <IoMenu

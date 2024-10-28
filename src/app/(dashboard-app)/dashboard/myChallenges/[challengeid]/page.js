@@ -3,8 +3,6 @@
 {/* eslint-disable react/no-unescaped-entities */}
 import React, { useState } from "react";
 import Image from "next/image";
-// import Suggestions from "../../../components/ui/suggestions";
-// import Modal from "../../../components/ui/Modal";
 import { useRouter } from "next/navigation";
 
 function Challenge() {

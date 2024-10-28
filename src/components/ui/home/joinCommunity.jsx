@@ -11,7 +11,7 @@ export default function JoinCommunity() {
           </h1>
           <p className="text-gray-700 mb-6 leading-7 text-base lg:text-lg">
             Empower your bootcamp graduates to thrive in a competitive job
-            market by integrating Talenvo into your programs. Give your students
+            market by integrating Devspax into your programs. Give your students
             the opportunity to gain hands-on experience, build impressive
             resumes, and secure jobs more quickly.
           </p>
