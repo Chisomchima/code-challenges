@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+import { MdShare } from "react-icons/md";
 import Pills from "../../../../components/ui/pills";
 import { useRouter } from "next/navigation";
 
@@ -8,70 +8,70 @@ function Page() {
   const cardData = [
     {
       id: 1,
-      imageSrc: "/images/card1.svg",
+      imageSrc: "/images/articles.jpg",
       title: "2factor Security",
       description:
         "Enhance your account security with 2-factor authentication, adding an extra layer of protection to safeguard your assets and personal information from unauthorized access.",
     },
     {
       id: 2,
-      imageSrc: "/images/card2.svg",
+      imageSrc: "/images/articles.jpg",
       title: "Extremely Low Swap Fees",
       description:
         "Benefit from minimal swap fees, maximizing the value of your transactions and ensuring that more of your funds go towards building your crypto portfolio.",
     },
     {
       id: 3,
-      imageSrc: "/images/card3.svg",
+      imageSrc: "/images/articles.jpg",
       title: "Virtual Cards",
       description:
         "Enjoy the flexibility and security of virtual card payments, allowing you to make purchases and transactions online without sharing your sensitive financial information.",
     },
     {
       id: 4,
-      imageSrc: "/images/card1.svg",
+      imageSrc: "/images/articles.jpg",
       title: "Secure Wallet",
       description:
         "Store your digital assets securely with our highly encrypted wallet solutions, protecting your investments from potential threats.",
     },
     {
       id: 5,
-      imageSrc: "/images/card3.svg",
+      imageSrc: "/images/articles.jpg",
       title: "Instant Transactions",
       description:
         "Experience lightning-fast transactions, ensuring your crypto transfers are completed within seconds, not minutes.",
     },
     {
       id: 6,
-      imageSrc: "/images/card2.svg",
+      imageSrc: "/images/articles.jpg",
       title: "24/7 Support",
       description:
         "Our dedicated support team is available around the clock to assist you with any issues or questions you may have.",
     },
     {
       id: 7,
-      imageSrc: "/images/card1.svg",
+      imageSrc: "/images/articles.jpg",
       title: "Advanced Analytics",
       description:
         "Utilize our advanced analytics tools to gain insights into market trends and make informed investment decisions.",
     },
     {
       id: 8,
-      imageSrc: "/images/card3.svg",
+      imageSrc: "/images/articles.jpg",
       title: "User-Friendly Interface",
       description:
         "Navigate our platform with ease, thanks to our intuitive and user-friendly interface designed for both beginners and experts.",
     },
     {
       id: 9,
-      imageSrc: "/images/card2.svg",
+      imageSrc: "/images/articles.jpg",
       title: "Secure Login",
       description:
         "Protect your account with our secure login system, featuring state-of-the-art encryption and multi-layer authentication.",
     },
     {
       id: 10,
-      imageSrc: "/images/card1.svg",
+      imageSrc: "/images/articles.jpg",
       title: "Mobile App",
       description:
         "Access your account on the go with our mobile app, available for both iOS and Android devices, providing you with flexibility and control.",
@@ -85,7 +85,7 @@ function Page() {
   ];
   const router = useRouter();
   const handleClick = (id) => {
-    router.push(`/challenges/${id}`);
+    router.push(`/dashboard/${id}`);
   };
   return (
     <div
@@ -113,28 +113,43 @@ function Page() {
         <Pills label={"Active challenges"} />
         <Pills label={"Completed challenges"} />
       </div>
-      <div className="w-full h-max grid  md:grid-cols-2 px-2 gap-5">
-        {cardData.map((card, index) => (
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-10 px-1 sm:px-2 h-full mb-10">
+        {cardData.map((card) => (
           <div
             onClick={() => handleClick(card.id)}
             key={card.id}
-            className={`${
-              predefinedBackgroundColors[
-                index % predefinedBackgroundColors.length
-              ]
-            }  text-white h-[300px] medal-card rounded-[22px] grid gap-2 px-2 md:px-10 py-5 cursor-pointer  transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl shadow-lg`}
+            className="text-black rounded-[18px] h-auto sm:rounded-[22px] grid cursor-pointer transform transition-transform duration-300 hover:scale-105 shadow bg-gray-50"
           >
-            <Image
+            <img
               src={card.imageSrc}
               alt={`Image for ${card.title}`}
-              width={80}
-              height={80}
-              objectFit="contain"
+              className="rounded-t-[18px] h-full w-full object-contain"
             />
-            <h1 className="text-[16px]">{card.title}</h1>
-            <p className="md:text-[10px] text-[12px]  md:w-[85%] font-medium">
-              {card.description}
-            </p>
+
+            <div className="rounded-b-[18px] flex flex-col items-start justify-center gap-2 bg-gray-50 p-5">
+              <h1 className="text-[14px] sm:text-[18px] font-medium">
+                {card.title}
+              </h1>
+              <p className="text-[10px] sm:text-[12px]">{card.description}</p>
+              <div className="flex items-center justify-between w-full mt-2">
+                <button
+                  className="px-4 py-3 text-white bg-purple-900 rounded-[1rem] text-[12px]sm:text-[14px] hover:bg-purple-800 transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleViewChallenge(card.id);
+                  }}
+                >
+                  View Challenge
+                </button>
+                <MdShare
+                  className="text-purple-900 hover:text-purple-800 cursor-pointer"
+                  size={20}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                />
+              </div>
+            </div>
           </div>
         ))}
       </div>

@@ -6,10 +6,10 @@ import Footer from "../../../components/ui/footer";
 
 function LayoutHook({ children }) {
   return (
-      <div className="w-full h-[100vh]">
+      <div className="w-fullh-[100vh]">
         <DashboardNavbar />
         <Sidebar />
-        <div className="h-[100vh] md:ml-[17%] pb-[100px]">
+        <div className="h-[100vh] md:ml-[17%] overflow-x-hidden">
           {children}
           <Footer />
         </div>
